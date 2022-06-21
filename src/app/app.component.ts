@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
 import { ModalRef, ModalService } from './shared/components/modal/services/modal.service';
 
 @Component({
@@ -7,12 +7,16 @@ import { ModalRef, ModalService } from './shared/components/modal/services/modal
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
   @ViewChild('modal') public modalTemplateRef: TemplateRef<any>;
+
   title = 'a11y-p2';
   public firstName = 'Dionatan';
   public modalRef: ModalRef;
 
-  constructor(private modalService: ModalService) {
+  constructor(
+    private modalService: ModalService
+    ) {
   }
 
   public show(): void {

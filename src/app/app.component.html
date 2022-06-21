@@ -7,7 +7,6 @@
   (click)="show()">Show modal</button>
 
 <ng-template #modal>
-
   <div class="form-field">
     <label for="firstName">First name</label>
     <input id="firstName" [(value)]="firstName">
@@ -27,5 +26,4 @@
     <button class="button button-primary" type="button">Submit</button>
     <button class="button button-secondary" type="button" (click)="modalRef.close()">Cancel</button>
   </div>
-
 </ng-template>
