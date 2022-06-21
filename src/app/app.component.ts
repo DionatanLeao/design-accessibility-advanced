@@ -20,11 +20,9 @@ export class AppComponent {
   }
 
   public show(): void {
-    this.modalService.open({
+    this.modalRef = this.modalService.open({
       templateRef: this.modalTemplateRef,
       title: 'User Details'
     });
-
-    //this.modalRef.close();
   }
 }
