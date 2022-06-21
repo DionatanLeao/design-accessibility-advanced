@@ -25,6 +25,6 @@ export class AppComponent {
       title: 'User Details'
     });
 
-    this.modalRef.close();
+    //this.modalRef.close();
   }
 }
