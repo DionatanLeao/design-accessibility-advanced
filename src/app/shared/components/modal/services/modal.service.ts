@@ -2,6 +2,7 @@ import { ComponentFactory, ComponentFactoryResolver, ComponentRef, Injectable, I
 import { BodyInjectorService } from 'src/app/shared/services/body-injector.service';
 import { ModalConfig } from '../interfaces/model-config';
 import { ModalComponent } from '../modal/modal.component';
+import { ModalRef } from '../models/model-ref';
 
 @Injectable({
   providedIn: 'root'
@@ -24,23 +25,13 @@ export class ModalService {
     console.log(componentRef.instance);
     console.log('open called');
     this.bodyInjector.stackBeforeAppRoot(componentRef)
-    return new ModalRef(componentRef);
+    const modalRef = new ModalRef(componentRef);
+    componentRef.instance.modalRef = modalRef;
+    return modalRef;
   }
 
   private createComponentRef(): ComponentRef<ModalComponent> {
     return this.componentFactory.create(this.injector);
-  }
-
-}
-
-export class ModalRef {
-
-  constructor(private componentRef: ComponentRef<ModalComponent>) {
-  }
-
-  public close(): void {
-    console.log('close called')
-    this.componentRef.destroy();
   }
 
 }
